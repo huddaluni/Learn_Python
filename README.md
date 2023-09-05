@@ -3,14 +3,15 @@
 In this basic .py notebook, I have uploaded a csv and have performed very initial analysis, the purpose of this notebook is to understand basic coding techniques.
 # 1. Import all libraries:
 
-import pandas as pd
-import pandas
-import math
-import statistics as stats
-import csv
-import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
+import pandas as pd  
+
+import pandas  
+import math  
+import statistics as stats  
+import csv  
+import numpy as np  
+import seaborn as sns  
+import matplotlib.pyplot as plt  
 
 # 2. This code needs to be changed according your own drive and path:
 You can find the csv in the repository, save it in your google drive and rephrase this code to suit your path file/directory,
