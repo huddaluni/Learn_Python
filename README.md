@@ -12,21 +12,22 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# 2. This code needs to changed according your own drive and path:
+# 2. This code needs to be changed according your own drive and path:
+You can find the csv in the repository, save it in your google drive and rephrase this code to suit your path file/directory,
 
 from google.colab import drive
 drive.mount("/content/drive")
 
-# Load CSV file into a DataFrame
+#Load CSV file into a DataFrame
 file_path = '/content/drive/MyDrive/Colab Notebooks/007 car-sales.csv'
 cdata = pd.read_csv(file_path)
-# 3. This will show first few rowa of the data:
-To Display the first few rows of the DataFrame
 
+# 3. This will show first few rows of the data:
+To Display the first few rows of the DataFrame
 
 print(cdata.head())
 
-# 4. To begin my analysis i will strat with basic statistics
+# 4. To begin my analysis i will strat with basics of getting to know my data
 1. Browse data by simply writing the name of data as saved in my case it will be cdata
 
 
@@ -51,8 +52,8 @@ cdata.dtypes
 cdata.info()
 
 cdata.isnull().sum()
-
-## Note: there were no null values in the data, however if we has encountered any nuls we could have performed a) forward fill or b) backwards fill, c)replacing with mean , mode or, median
+# Replacing Null values:
+Note: there are no null values in this data, however if we had encountered any nulls we could have performed a) forward fill or b) backwards fill, c)replacing with mean , mode or, median
 
 a) Forward Fill
 f_cdata = cdata.fillna(method = "ffill", inpace = True)
@@ -62,16 +63,16 @@ c) If i want to use mean values to fill missing values
 mean_cdata =  cdata.fillna(data["bill_depth_mm"].mean(), inplace = True)
 data["bill_depth_mm"].mean()
 
-#if i have alot of data of million and 10 percent is missing, i can simply drop it to prevent skewness and miss representation.
-#data.dropna()
+#Its not always important to replace the missing values,  i can simply drop it too prevent skewness and miss representation.
+data.dropna()
 
 6. To quickly get mean of data I use this command, *Note: This only works for numeric values in the data
 
 cdata.mean()
 
 7. cdata.sum(), only works if data type is numeric , incase of strings it just sum the strin values.
-
 cdata.sum()
+
 #these code can be used to perform sum on individual columns
 cdata["Doors"].sum()
 
@@ -97,7 +98,7 @@ colour_encoder = LabelEncoder()
 #Encode 'Make' and 'Colour' columns and store them in new columns
 cdata['Make_Label'] = make_encoder.fit_transform(cdata['Make']) + 1
 cdata['Colour_Label'] = colour_encoder.fit_transform(cdata['Colour']) + 1
-#i am adding plus one in this code so that the encoding dosent start from zero but 1.
+#I am adding plus one in this code so that the encoding dosent start from zero but 1.
 cdata
 
 #I am encoding string values to run statictical analysis and making them numeric by coding them,
